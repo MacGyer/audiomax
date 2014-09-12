@@ -1,0 +1,155 @@
+/* 
+    Created on : 27.12.2013, 23:41:21
+    Author     : Christoph Erdmann
+*/
+.mod_audiomax .player {
+  width: 300px;
+  padding: 2px;
+  border-radius: 4px;
+  background: #000;
+  background-image: -webkit-linear-gradient(top, black, #222222);
+  background-image: -o-linear-gradient(top, black, #222222);
+  background-image: -moz-linear-gradient(top, black, #222222);
+  background-image: -ms-linear-gradient(top, black, #222222);
+  background-image: linear-gradient(top, black, #222222);
+}
+.mod_audiomax .player * {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  color: #fff;
+  font-size: 10px;
+  font-family: Arial, sans-serif;
+}
+.mod_audiomax .player .inside {
+  border: solid 1px #096ed3;
+  border-radius: inherit;
+  padding: 10px;
+  margin: 0px;
+}
+.mod_audiomax .player .playlistTitle {
+  font-weight: bold;
+  font-size: 12px;
+}
+.mod_audiomax .player .playlistDescription {
+  font-style: italic;
+  margin-top: 5px;
+}
+.mod_audiomax .player #controls {
+  font-size: 0px;
+  display: inline-block;
+  list-style: none;
+}
+.mod_audiomax .player #controls li {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  border-radius: 2px;
+  border: solid 1px #096ed3;
+  margin-right: 5px;
+  text-indent: -9999px;
+  background: url(../images/sprite.png) no-repeat;
+  cursor: pointer;
+  -webkit-transition: border-color 400ms, background-position 400ms;
+  -o-transition: border-color 400ms, background-position 400ms;
+  -moz-transition: border-color 400ms, background-position 400ms;
+  -ms-transition: border-color 400ms, background-position 400ms;
+  transition: border-color 400ms, background-position 400ms;
+}
+.mod_audiomax .player #controls li:hover {
+  border-color: #fff;
+}
+.mod_audiomax .player #controls li[data-controls="prev"] {
+  background-position: 2px 2px;
+}
+.mod_audiomax .player #controls li[data-controls="prev"]:hover {
+  background-position: 2px -30px;
+}
+.mod_audiomax .player #controls li[data-controls="play"] {
+  background-position: -30px 2px;
+}
+.mod_audiomax .player #controls li[data-controls="play"]:hover {
+  background-position: -30px -30px;
+}
+.mod_audiomax .player #controls li[data-state="pause"] {
+  background-position: -57px 2px;
+}
+.mod_audiomax .player #controls li[data-state="pause"]:hover {
+  background-position: -57px -30px;
+}
+.mod_audiomax .player #controls li[data-controls="next"] {
+  background-position: -94px 2px;
+}
+.mod_audiomax .player #controls li[data-controls="next"]:hover {
+  background-position: -94px -30px;
+}
+.mod_audiomax .player #controls li[data-state="volumeOn"] {
+  margin-left: 8px;
+  background-position: -126px 2px;
+}
+.mod_audiomax .player #controls li[data-state="volumeOn"]:hover {
+  background-position: -126px -30px;
+}
+.mod_audiomax .player #controls li[data-state="volumeOff"] {
+  margin-left: 8px;
+  background-position: -156px 2px;
+}
+.mod_audiomax .player #controls li[data-state="volumeOff"]:hover {
+  background-position: -156px -30px;
+}
+.mod_audiomax .player #volume {
+  display: inline-block;
+  width: 150px;
+  height: 11px;
+  padding-top: 5px;
+  float: right;
+  font-size: 0px;
+}
+.mod_audiomax .player #volume meter {
+  width: 100px;
+  display: inline-block;
+  cursor: pointer;
+}
+.mod_audiomax .player #volume span {
+  display: inline-block;
+  width: 50px;
+  text-align: right;
+}
+.mod_audiomax .player #playlist {
+  list-style: none;
+  border-top: solid 1px #fff;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.mod_audiomax .player #playlist li {
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.mod_audiomax .player #playlist li.active, .mod_audiomax .player #playlist li:hover {
+  background: #096ed3;
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, #096ed3, #0a7beb);
+  background-image: -o-linear-gradient(top, #096ed3, #0a7beb);
+  background-image: -moz-linear-gradient(top, #096ed3, #0a7beb);
+  background-image: -ms-linear-gradient(top, #096ed3, #0a7beb);
+  background-image: linear-gradient(top, #096ed3, #0a7beb);
+}
+.mod_audiomax .player #playerInfo {
+  margin: 0px 0px 10px 0px;
+  font-size: 0px;
+}
+.mod_audiomax .player #playerInfo progress {
+  width: 230px;
+  display: inline-block;
+  cursor: pointer;
+}
+.mod_audiomax .player #playerInfo span {
+  width: 48px;
+  text-align: right;
+  display: inline-block;
+}
+
+/*# sourceMappingURL=player.css.map */

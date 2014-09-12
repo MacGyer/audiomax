@@ -1,0 +1,164 @@
+/* 
+    Created on : 27.12.2013, 23:41:21
+    Author     : Christoph Erdmann
+*/
+
+// IMPORTS
+
+// VARS
+$colorBlue: rgb(9, 110, 211);
+
+// MIXINS
+@mixin linear-gradient($strGradient...){
+    background-image: -webkit-linear-gradient(#{$strGradient});
+    background-image: -o-linear-gradient(#{$strGradient});
+    background-image: -moz-linear-gradient(#{$strGradient});
+    background-image: -ms-linear-gradient(#{$strGradient});
+    background-image: linear-gradient(#{$strGradient});
+}
+@mixin transition($strTransition...){
+    -webkit-transition: #{$strTransition};
+    -o-transition: #{$strTransition};
+    -moz-transition: #{$strTransition};
+    -ms-transition: #{$strTransition};
+    transition: #{$strTransition};
+}
+
+// STYLES
+.mod_audiomax .player{
+    width: 300px;
+    padding: 2px;
+    border-radius: 4px;
+    background: #000;
+    @include linear-gradient(top, #000, #222);
+    *{
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+        color: #fff;
+        font-size: 10px;
+        font-family: Arial, sans-serif;
+    }
+    .inside{
+        border: solid 1px rgb(9, 110, 211);
+        border-radius: inherit;
+        padding: 10px;
+        margin: 0px;
+    }
+    .playlistTitle{
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .playlistDescription{
+        font-style: italic;
+        margin-top: 5px;
+    }
+    #controls{
+        font-size: 0px;
+        display: inline-block;
+        list-style: none;
+        li{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            padding: 2px;
+            border-radius: 2px;
+            border: solid 1px rgb(9, 110, 211);
+            margin-right: 5px;
+            text-indent: -9999px;
+            background: url(../images/sprite.png) no-repeat;
+            cursor: pointer;
+            @include transition(border-color 400ms, background-position 400ms);
+            &:hover{
+                border-color: #fff;
+            }
+            &[data-controls="prev"]{
+                background-position: 2px 2px;
+                &:hover{
+                    background-position: 2px -30px;
+                }
+            }
+            &[data-controls="play"]{
+                background-position: -30px 2px;
+                &:hover{
+                    background-position: -30px -30px;
+                }
+            }
+            &[data-state="pause"]{
+                background-position: -57px 2px;
+                &:hover{
+                    background-position: -57px -30px;
+                }
+            }
+            &[data-controls="next"]{
+                background-position: -94px 2px;
+                &:hover{
+                    background-position: -94px -30px;
+                }
+            }
+            &[data-state="volumeOn"]{
+                margin-left: 8px;
+                background-position: -126px 2px;
+                &:hover{
+                    background-position: -126px -30px;
+                }
+            }
+            &[data-state="volumeOff"]{
+                margin-left: 8px;
+                background-position: -156px 2px;
+                &:hover{
+                    background-position: -156px -30px;
+                }
+            }
+        }
+    }
+    #volume{
+        display: inline-block;
+        width: 150px;
+        height: 11px;
+        padding-top: 5px;
+        float: right;
+        font-size: 0px;
+        meter{
+            width: 100px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        span{
+            display: inline-block;
+            width: 50px;
+            text-align: right;
+        }
+    }
+    #playlist{
+        list-style: none;
+        border-top: solid 1px #fff;
+        padding-top: 10px;
+        margin-top: 10px;
+        li{
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            &.active, &:hover{
+                background: $colorBlue;
+                color: #fff;
+                @include linear-gradient(top, $colorBlue, lighten($colorBlue, 5%));
+            }
+        }
+    }
+    #playerInfo{
+        margin: 0px 0px 10px 0px;
+        font-size: 0px;
+        progress{
+            width: 230px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        span{
+            width: 48px;
+            text-align: right;
+            display: inline-block;
+        }
+    }
+}

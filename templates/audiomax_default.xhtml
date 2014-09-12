@@ -1,0 +1,14 @@
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+    <?php echo $this->player; ?>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery("#<?php echo $this->playerId; ?>").audiomax({
+                playlist: <?php echo $this->playlist; ?>,
+                preload: 'metadata',
+                title:  "<?php echo (!empty($this->title)) ? $this->title : 'null'; ?>",
+                description:  "<?php echo (!empty($this->description)) ? $this->description : 'null'; ?>"
+            });
+        });
+    </script>
+</div>
