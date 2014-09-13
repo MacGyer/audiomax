@@ -16,6 +16,7 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_module']['audiomax_playlist'] = array('Audiomax playlist', 'Please select a playlist.');
+$GLOBALS['TL_LANG']['tl_module']['audiomax_tpl'] = array('Template', 'Please select a template.');
 
 /**
  * Legends

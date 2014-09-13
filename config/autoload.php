@@ -36,9 +36,6 @@ ClassLoader::addClasses(array
 	// Models
 	'audiomax\AudiomaxPlaylistModel'   => 'system/modules/audiomax/models/AudiomaxPlaylistModel.php',
 	'audiomax\AudiomaxSongModel'       => 'system/modules/audiomax/models/AudiomaxSongModel.php',
-
-	// _bak
-	'audiomax\ContentAudiomaxPlaylist' => 'system/modules/audiomax/_bak/elements/ContentAudiomaxPlaylist.php',
 ));
 
 

@@ -16,7 +16,7 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_audiomax_song']['title'] = array('Songtitel', 'Tragen Sie hier den Songtitel ein.');
-$GLOBALS['TL_LANG']['tl_audiomax_song']['interpret'] = array('Interpret', 'Hier können Sie einen Interpreten eintragen.');
+$GLOBALS['TL_LANG']['tl_audiomax_song']['interpreter'] = array('Interpret', 'Hier können Sie einen Interpreten eintragen.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['album'] = array('Album', 'Hier können Sie einen Albumtitel eintragen.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['track'] = array('Tracknummer', 'Hier können Sie eine Tracknummer eintragen.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['file'] = array('Datei', 'Wählen Sie die Datei/en aus. Sie können mehrere Dateien des gleichen Songs wählen, wenn Sie unterschiedliche Codecs nutzen.');
