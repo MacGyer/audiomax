@@ -113,13 +113,13 @@ $GLOBALS['TL_DCA']['tl_audiomax_song'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array('protected'),
-		'default'                     => '{general_legend},title,interpreter,album,track;{files_legend},file;{publish_legend},published,start,stop'
+		'default'                     => '{general_legend},title,interpreter,album,track;{files_legend},file;{protected_legend:hide},protected;{publish_legend},published,start,stop'
 	),
 
 	// Subpalettes
 	'subpalettes' => array
 	(
-	
+            'protected'                       => 'groups'
 	),
 
 	// Fields
@@ -188,6 +188,25 @@ $GLOBALS['TL_DCA']['tl_audiomax_song'] = array
 			'inputType'               => 'fileTree',
 			'eval'                    => array('mandatory' => true, 'multiple'=>true, 'fieldType'=>'checkbox', 'filesOnly'=>true, 'extensions'=>'mp3,ogg,wav'),
 			'sql'                     => "blob NOT NULL"
+		),
+                'protected' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_audiomax_song']['protected'],
+			'exclude'                 => true,
+			'filter'                  => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('submitOnChange'=>true),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
+		'groups' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_audiomax_song']['groups'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'foreignKey'              => 'tl_member_group.name',
+			'eval'                    => array('mandatory'=>true, 'multiple'=>true),
+			'sql'                     => "blob NULL",
+			'relation'                => array('type'=>'hasMany', 'load'=>'lazy')
 		),
 		'published' => array
 		(

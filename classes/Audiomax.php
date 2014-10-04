@@ -23,7 +23,7 @@ namespace audiomax;
  *
  * @copyright  pluspunkt coding 2014
  * @author     Christoph Erdmann
- * @package    Devtools
+ * @package    audiomax
  */
 class Audiomax
 {
@@ -56,10 +56,18 @@ class Audiomax
         $arrFiles = array();
         $i = 0;
         
+        if($objSongs === null)
+        {
+            return;
+        }
+        
         while($objSongs->next())
         {
             $arrSong = $objSongs->row();
             
+            $arrFiles[$i]['protected'] = $arrSong['protected'];
+            $arrFiles[$i]['groups'] = $arrSong['groups'];
+            $arrFiles[$i]['id'] = $arrSong['id'];
             $arrFiles[$i]['interpreter'] = $arrSong['interpreter'];
             $arrFiles[$i]['title'] = $arrSong['title'];
             $arrFiles[$i]['album'] = $arrSong['album'];
@@ -82,6 +90,9 @@ class Audiomax
             $i++;
         }
         
+        // sort out protected songs
+        $arrFiles = $this->sortOutProtected($arrFiles);
+        
         return $arrFiles;
     }
     
@@ -95,5 +106,44 @@ class Audiomax
     public function createUniqueId($intLength = 10, $strPrefix = null)
     {
         return substr(sha1(uniqid($strPrefix, true)), 0, $intLength);
+    }
+    
+    /**
+     * Sort out protected songs
+     * 
+     * @param array $arrSongs
+     * @return array
+     * 
+     */
+    public function sortOutProtected($arrSongs = array())
+    {
+        if(empty($arrSongs))
+        {
+            return;
+        }
+        
+        $objUser = \FrontendUser::getInstance();
+        
+        foreach($arrSongs as $k => &$arrSong)
+        {
+            if($arrSong['protected'])
+            {
+                if(!FE_USER_LOGGED_IN)
+                {
+                    unset($arrSongs[$k]);
+                }
+                else{
+                    $arrSongGroups = deserialize($arrSong['groups']);
+          
+                    if(!isset($arrSongGroups) or empty($arrSongGroups) or !count(array_intersect($arrSongGroups, $objUser->groups)))
+                    {
+                        unset($arrSongs[$k]);
+                    }
+                }
+            }
+        }
+        
+        $arrSongs = array_values($arrSongs);
+        return $arrSongs;
     }
 }

@@ -20,6 +20,8 @@ $GLOBALS['TL_LANG']['tl_audiomax_song']['interpreter'] = array('Interpreter', 'H
 $GLOBALS['TL_LANG']['tl_audiomax_song']['album'] = array('Album', 'You can fill in an album title here.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['track'] = array('Track number', 'Here you can fill in a track number.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['file'] = array('File', 'Choose the file/s. You can choose multiple files of the same song, when you want to use different codecs.');
+$GLOBALS['TL_LANG']['tl_audiomax_song']['protected'] = array('Protect song', 'Show song to certain member groups only.');
+$GLOBALS['TL_LANG']['tl_audiomax_song']['groups'] = array('Allowed member groups', 'These groups will be able to see the song.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['published'] = array('Publish song', 'Show the song in playlist.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['start'] = array('Show from', 'Show the song in the playlist from this date.');
 $GLOBALS['TL_LANG']['tl_audiomax_song']['stop'] = array('Show until', 'Only show the song in the playlist until this date.');
@@ -30,6 +32,7 @@ $GLOBALS['TL_LANG']['tl_audiomax_song']['stop'] = array('Show until', 'Only show
  */
 $GLOBALS['TL_LANG']['tl_audiomax_song']['general_legend'] = 'Song information';
 $GLOBALS['TL_LANG']['tl_audiomax_song']['files_legend'] = 'Choose files';
+$GLOBALS['TL_LANG']['tl_audiomax_song']['protected_legend'] = 'Access protection';
 $GLOBALS['TL_LANG']['tl_audiomax_song']['publish_legend'] = 'Publish';
 
 /**
